@@ -46,10 +46,6 @@ class View
             exit('VIEW NÃO EXISTE');
         }
         return ob_get_clean();
-    }
-
-    public function __destruct()
-    {
         require_once INCLUDE_PATH . 'footer.phtml';
     }
 

@@ -26,10 +26,7 @@ class Router extends Request
     public function run()
     {
         if (!$this->checkControllerExists() || !$this->checkMethodExists()) {
-             /**
-             * ! TRATAR O RETORNO
-             */
-            exit('Essa classe não existe');
+            self::notFound();
         }
 
         /**
@@ -41,9 +38,9 @@ class Router extends Request
 
         print call_user_func_array(
             [
-                new $controller(), 
+                new $controller(),
                 $this->getAction()
-            ], 
+            ],
             $this->getArgs()
         );
 
@@ -57,5 +54,11 @@ class Router extends Request
     public function getRequest(): Request
     {
         return $this->request;
+    }
+
+    public static function notFound()
+    {
+        print(new \Financial\View\View('/404.phtml', true))->render();
+        exit();
     }
 }
