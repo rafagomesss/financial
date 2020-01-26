@@ -1,0 +1,16 @@
+{
+    "name": "gomes/financial",
+    "authors": [
+        {
+            "name": "Gomes",
+            "email": "gomes.webads@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Financial\\": "src/",
+            "System\\": "vendor/System/"
+        }
+    }
+}
