@@ -1,9 +1,13 @@
 <div class="col">
     <h1>Teste</h1>
-    <?php foreach($this->categorias as $categoria): ?>
-        <h1>Categoria: <?= $categoria['nome'];?></h1>
-        <h4>Descrição: <?= $categoria['descricao'];?></h4>
-        <small>R$ <?= $categoria['valor'];?></small>
-        <small>Data Criação: <?= $categoria['criadaEm'];?></small>
-    <?php endforeach; ?>
+</div>
+<div class="row">
+    <?php foreach ($this->categorias as $categoria) : ?>
+        <div class="col">
+            <h1>Categoria: <?= $categoria['nome']; ?></h1>
+            <h4>Descrição: <?= $categoria['descricao']; ?></h4>
+            <small>R$ <?= $categoria['valor']; ?></small>
+            <small>Data Criação: <?= $categoria['criadaEm']; ?></small>
+        </div>
+        <?php endforeach; ?>
 </div>
