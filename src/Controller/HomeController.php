@@ -17,7 +17,7 @@ class HomeController
         curl_close($ch);
         // echo '<pre>' . print_r($resp, 1) . '</pre>';exit;
         $view = new View('site/home.phtml', true);
-        $view->categorias = $resp;
+        $view->categorias = $resp ?? [];
         return $view->render();
     }
 }

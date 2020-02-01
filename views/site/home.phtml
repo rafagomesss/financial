@@ -2,6 +2,7 @@
     <h1>Teste</h1>
 </div>
 <div class="row">
+    <?php if (count($this->categorias) > 0): ?>
     <?php foreach ($this->categorias as $categoria) : ?>
         <div class="col">
             <h1>Categoria: <?= $categoria['nome']; ?></h1>
@@ -9,5 +10,10 @@
             <small>R$ <?= $categoria['valor']; ?></small>
             <small>Data Criação: <?= $categoria['criadaEm']; ?></small>
         </div>
-        <?php endforeach; ?>
+    <?php endforeach; ?>
+    <?php else: ?>
+        <div class="col">
+            <h1>Nenhuma registro encontrado!</h1>
+        </div>
+    <?php endif; ?>
 </div>
