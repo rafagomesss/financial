@@ -2,16 +2,15 @@
     <h1>Teste</h1>
 </div>
 <div class="row">
-    <?php if (count($this->categorias) > 0): ?>
-    <?php foreach ($this->categorias as $categoria) : ?>
-        <div class="col">
-            <h1>Categoria: <?= $categoria['nome']; ?></h1>
-            <h4>Descrição: <?= $categoria['descricao']; ?></h4>
-            <small>R$ <?= $categoria['valor']; ?></small>
-            <small>Data Criação: <?= $categoria['criadaEm']; ?></small>
-        </div>
-    <?php endforeach; ?>
-    <?php else: ?>
+    <?php if (count($this->categorias) > 0) : ?>
+        <?php foreach ($this->categorias as $categoria) : ?>
+            <div class="col">
+                <h1>Categoria: <?= $categoria['name']; ?></h1>
+                <h4>Descrição: <?= $categoria['description']; ?></h4>
+                <small>Criado em: <?= $categoria['created_at']; ?></small>
+            </div>
+        <?php endforeach; ?>
+    <?php else : ?>
         <div class="col">
             <h1>Nenhuma registro encontrado!</h1>
         </div>
