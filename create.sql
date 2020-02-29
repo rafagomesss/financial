@@ -1,4 +1,6 @@
-﻿CREATE DATABASE IF NOT EXISTS financial SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+﻿CREATE DATABASE IF NOT EXISTS financial;
+ALTER DATABASE financial CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
 USE financial;
 
 CREATE TABLE IF NOT EXISTS categories(
@@ -93,6 +95,7 @@ CREATE TABLE IF NOT EXISTS user_access(
     password VARCHAR(64) NOT NULL,
     id_level INT(2) UNSIGNED NOT NULL,
     id_personal_data INT(11) UNSIGNED NOT NULL,
+    personal_data_complete BOOLEAN NOT NULL DEFAULT false,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP(),
     updated_at DATETIME DEFAULT NULL,
     PRIMARY KEY (id),
@@ -106,6 +109,6 @@ CREATE TABLE IF NOT EXISTS user_access(
         ON UPDATE NO ACTION
 )ENGINE = InnoDB DEFAULT CHARSET = Latin1;
 
-#DROP TABLE user_access;
+# DROP TABLE user_access;
 
 SELECT * FROM user_access;
