@@ -8,11 +8,15 @@ class RequestAPI
     {
     }
 
-    public static function sendRequest()
+    public function sendRequest(string $url, array $params = [])
     {
+        $sendPost = (bool) count($params);
         $ch = curl_init();
-        $url = 'http://localhost:4040/categorias';
         curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, $sendPost);
+        if ($sendPost) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($params));
+        }
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $resp = json_decode(curl_exec($ch), true);
         curl_close($ch);

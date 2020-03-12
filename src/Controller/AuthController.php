@@ -3,6 +3,7 @@
 namespace Financial\Controller;
 
 use Financial\View\View;
+use System\RequestAPI;
 
 class AuthController
 {
@@ -36,11 +37,11 @@ class AuthController
 
     public function saveRegisterData()
     {
-        $param = json_encode($this->validarDadosPost());
+        $param = $this->validarDadosPost();
 
+        $postRequest = (new RequestAPI())->sendRequest('http://localhost:4000/usuario', $param);
         //$verify = sodium_crypto_pwhash_str_verify($password, '222222');
-
-        echo '<pre>' . print_r($param, 1) . '</pre>';
+        echo '<pre>' . print_r($postRequest, 1) . '</pre>';
         exit();
     }
 }
