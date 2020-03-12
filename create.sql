@@ -91,8 +91,8 @@ SELECT * FROM user_personal_data;
 
 CREATE TABLE IF NOT EXISTS user_access(
     id INT(11) UNSIGNED AUTO_INCREMENT NOT NULL,
-    login VARCHAR(100) NOT NULL,
-    password VARCHAR(64) NOT NULL,
+    login VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(100) NOT NULL,
     id_level INT(2) UNSIGNED NOT NULL,
     id_personal_data INT(11) UNSIGNED NOT NULL,
     personal_data_complete BOOLEAN NOT NULL DEFAULT false,
